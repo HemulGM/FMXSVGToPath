@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{983DA1C5-A777-4A5A-9803-5BFB0151BD0A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SVGToPath.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FMXSVG\sample\SVGTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SVGToPath">
+        <MSBuild Projects="SVGToPath.dproj"/>
+    </Target>
+    <Target Name="SVGToPath:Clean">
+        <MSBuild Projects="SVGToPath.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SVGToPath:Make">
+        <MSBuild Projects="SVGToPath.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SVGTest">
+        <MSBuild Projects="FMXSVG\sample\SVGTest.dproj"/>
+    </Target>
+    <Target Name="SVGTest:Clean">
+        <MSBuild Projects="FMXSVG\sample\SVGTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SVGTest:Make">
+        <MSBuild Projects="FMXSVG\sample\SVGTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SVGToPath;SVGTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SVGToPath:Clean;SVGTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SVGToPath:Make;SVGTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

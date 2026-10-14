@@ -1,0 +1,3 @@
+[submodule "FMXSVG"]
+	path = FMXSVG
+	url = https://github.com/HemulGM/FMXSVG

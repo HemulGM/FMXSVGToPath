@@ -1,0 +1,8 @@
+/__history/*
+/Win32/*
+*.local
+*.vlb
+*.dcu
+*.identcache
+*.dsk
+*.dsv
